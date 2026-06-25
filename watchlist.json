@@ -1,19 +1,12 @@
 [
   {
-    "name": "Pokemon Mega Lucario ex League Battle Deck (EB Games)",
-    "url": "https://www.ebgames.com.au/product/REPLACE-WITH-REAL-PRODUCT-PAGE",
-    "cart_url": "",
-    "image": ""
+    "name": "EB Games - Pokemon Mega Evolution",
+    "url": "https://www.ebgames.com.au/featured/pokemon-trading-card-game",
+    "keywords": ["mega evolution"]
   },
   {
-    "name": "One Piece OP-11 booster box (JB Hi-Fi)",
-    "url": "https://www.jbhifi.com.au/products/REPLACE-WITH-REAL-PRODUCT-PAGE",
-    "cart_url": "",
-    "image": ""
-  },
-  {
-    "name": "Keyword watch: any new One Piece OP-11 on EB Games search",
-    "url": "https://www.ebgames.com.au/search?q=one+piece+op-11",
-    "keywords": ["one piece", "op-11"]
+    "name": "JB Hi-Fi - Pokemon Mega Evolution",
+    "url": "https://www.jbhifi.com.au/collections/collectibles-merchandise/pokemon-trading-cards",
+    "keywords": ["mega evolution"]
   }
 ]
