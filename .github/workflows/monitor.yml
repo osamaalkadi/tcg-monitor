@@ -1,0 +1,54 @@
+name: Stock monitor
+
+on:
+  schedule:
+    # Every 15 minutes. Note: GitHub's scheduler is best-effort and can
+    # lag several minutes under load. Don't set this lower than ~*/10;
+    # very frequent crons get throttled and add little value here.
+    - cron: "*/15 * * * *"
+  workflow_dispatch: {}   # lets you run it manually from the Actions tab
+
+# Allow the job to push the updated state.json back to the repo.
+permissions:
+  contents: write
+
+# Prevent overlapping runs if one is slow.
+concurrency:
+  group: stock-monitor
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+
+      - name: Run monitor
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+        run: python monitor.py
+
+      - name: Commit updated state
+        run: |
+          git config user.name  "stock-monitor-bot"
+          git config user.email "actions@github.com"
+          git add state.json
+          if git diff --staged --quiet; then
+            echo "No state change to commit."
+          else
+            git commit -m "Update stock state [skip ci]"
+            git push
+          fi
