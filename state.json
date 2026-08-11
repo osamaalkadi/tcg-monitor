@@ -6,15 +6,15 @@
     "site": "ebgames",
     "cart_url": null,
     "image": null,
-    "checked_at": "2026-08-11T23:02:37.362957+00:00"
+    "checked_at": "2026-08-11T23:58:00.306635+00:00"
   },
   "https://www.jbhifi.com.au/collections/collectibles-merchandise/pokemon-trading-cards": {
     "name": "JB Hi-Fi - Pokemon Mega Evolution",
-    "status": "preorder",
+    "status": "oos",
     "price": "Minimum",
     "site": "jbhifi",
     "cart_url": null,
     "image": null,
-    "checked_at": "2026-08-11T23:02:41.080806+00:00"
+    "checked_at": "2026-08-11T23:58:05.098205+00:00"
   }
 }
